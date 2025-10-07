@@ -297,6 +297,8 @@ static const ERR_STRING_DATA SSL_str_reasons[] = {
     {ERR_PACK(ERR_LIB_SSL, 0, SSL_R_NO_CERTIFICATE_ASSIGNED),
      "no certificate assigned"},
     {ERR_PACK(ERR_LIB_SSL, 0, SSL_R_NO_CERTIFICATE_SET), "no certificate set"},
+    {ERR_PACK(ERR_LIB_SSL, 0, SSL_R_NO_CERTIFICATE_REQUESTED),
+     "no client certificate requested"},
     {ERR_PACK(ERR_LIB_SSL, 0, SSL_R_NO_CHANGE_FOLLOWING_HRR),
      "no change following hrr"},
     {ERR_PACK(ERR_LIB_SSL, 0, SSL_R_NO_CIPHERS_AVAILABLE),

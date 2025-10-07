@@ -618,8 +618,13 @@ WRITE_TRAN ossl_statem_client_write_transition(SSL_CONNECTION *s)
         s->ts_msg_read = ossl_time_now();
         if (s->s3.tmp.cert_req)
             st->hand_state = TLS_ST_CW_CERT;
-        else
-            st->hand_state = TLS_ST_CW_KEY_EXCH;
+        else if (s->verify_mode & SSL_VERIFY_PEER &&
+		 s->verify_mode & SSL_VERIFY_FAIL_IF_NO_CERT_REQ) {
+	    SSLfatal(s, SSL_AD_PROTOCOL_VERSION, SSL_R_NO_CERTIFICATE_REQUESTED);
+	    ssl3_send_alert(s, SSL3_AL_FATAL, SSL_AD_INTERNAL_ERROR);
+	    return WRITE_TRAN_ERROR;
+	} else
+	    st->hand_state = TLS_ST_CW_KEY_EXCH;
         return WRITE_TRAN_CONTINUE;
 
     case TLS_ST_CW_CERT:

@@ -1534,6 +1534,7 @@ SSL_R_NO_APPLICATION_PROTOCOL:235:no application protocol
 SSL_R_NO_CERTIFICATES_RETURNED:176:no certificates returned
 SSL_R_NO_CERTIFICATE_ASSIGNED:177:no certificate assigned
 SSL_R_NO_CERTIFICATE_SET:179:no certificate set
+SSL_R_NO_CERTIFICATE_REQUESTED:424:no client certificate requested
 SSL_R_NO_CHANGE_FOLLOWING_HRR:214:no change following hrr
 SSL_R_NO_CIPHERS_AVAILABLE:181:no ciphers available
 SSL_R_NO_CIPHERS_SPECIFIED:183:no ciphers specified
